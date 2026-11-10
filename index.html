@@ -15,7 +15,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cat.css" />
     <script src="script.js" defer></script>
+    <script src="cat.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -26,6 +28,7 @@
       </button>
       <nav id="site-nav" class="site-nav" aria-label="Main navigation">
         <a href="#work">Work</a>
+        <a href="cat.html">Cat of the day</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -87,6 +90,29 @@ developer.<span class="code-key">build</span>();</code></pre>
               <a href="#contact" aria-label="Ask about Orbit Studio project">↗</a>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section id="cat-of-the-day" class="cat-home-section section-shell">
+        <div class="cat-home-heading">
+          <div>
+            <p class="eyebrow">A small daily experiment</p>
+            <h2>Cat of the <em>day.</em></h2>
+          </div>
+          <p>One API request. One cat. New every day.</p>
+        </div>
+        <div class="cat-card" aria-live="polite">
+          <div class="cat-loading">
+            <span class="loading-dot"></span>
+            <p>Finding today’s cat...</p>
+          </div>
+          <img class="cat-image" alt="" />
+          <div class="cat-details">
+            <p class="cat-date"></p>
+            <a class="text-link cat-source" href="#" target="_blank" rel="noreferrer">View original <span>↗</span></a>
+          </div>
+          <p class="cat-error" role="alert"></p>
+          <button class="button button-primary retry-button" type="button">Try again <span>↻</span></button>
         </div>
       </section>
 

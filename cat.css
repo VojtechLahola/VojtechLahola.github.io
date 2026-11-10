@@ -1,0 +1,33 @@
+.cat-page { padding: 90px 0 140px; }
+.cat-home-section { padding: 20px 0 130px; }
+.cat-home-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 38px; }
+.cat-home-heading h2 { margin: 0; font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: .98; letter-spacing: -.07em; }
+.cat-home-heading > p { max-width: 220px; margin: 0 0 5px; color: var(--muted); font-size: .9rem; }
+.cat-home-section .cat-card { max-width: 100%; }
+.cat-home-section .cat-image { max-height: 480px; }
+.cat-intro { max-width: 720px; margin-bottom: 55px; }
+.cat-intro h1 { margin: 0 0 24px; }
+.cat-intro > p:last-child { max-width: 460px; margin: 0; color: var(--muted); font-size: 1.1rem; }
+.cat-card { max-width: 850px; margin: 0 auto; padding: 14px; border: 1px solid var(--forest); background: var(--paper); box-shadow: 14px 14px 0 var(--sand); }
+.cat-image { display: none; width: 100%; max-height: 620px; object-fit: cover; background: var(--sand); }
+.cat-image.is-visible { display: block; }
+.cat-loading { display: flex; align-items: center; justify-content: center; min-height: 430px; background: var(--sand); color: var(--forest); }
+.cat-loading p { margin: 0; font-weight: 700; }
+.loading-dot { width: 10px; height: 10px; margin-right: 12px; border-radius: 50%; background: var(--olive); animation: pulse 1s infinite alternate; }
+.cat-details { display: none; align-items: center; justify-content: space-between; padding: 20px 4px 4px; }
+.cat-details.is-visible { display: flex; }
+.cat-date { margin: 0; color: var(--muted); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.cat-source { font-size: .85rem; }
+.cat-error { display: none; margin: 25px 10px 0; color: var(--ink); text-align: center; }
+.cat-error.is-visible { display: block; }
+.retry-button { display: none; margin: 18px auto 8px; border: 0; cursor: pointer; }
+.retry-button.is-visible { display: flex; }
+@keyframes pulse { from { opacity: .35; } to { opacity: 1; } }
+@media (max-width: 700px) {
+  .cat-page { padding: 70px 0 100px; }
+  .cat-home-section { padding: 0 0 85px; }
+  .cat-home-heading { display: block; }.cat-home-heading > p { margin-top: 20px; }
+  .cat-card { box-shadow: 8px 8px 0 var(--sand); }
+  .cat-loading { min-height: 300px; }
+  .cat-details { align-items: flex-start; flex-direction: column; gap: 14px; }
+}
