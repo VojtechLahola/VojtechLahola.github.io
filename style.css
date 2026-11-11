@@ -397,6 +397,24 @@ h3,
   border: 0;
 }
 
+@media (max-width: 1400px) {
+  .identity-panel {
+    display: flex;
+    min-height: auto;
+    padding: 38px clamp(24px, 7vw, 96px) 42px;
+  }
+
+  .identity-content {
+    width: 100%;
+    margin: 110px 0 52px;
+  }
+
+  .hero-cat {
+    width: min(100%, 560px);
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 900px) {
   .identity-panel {
     display: flex;
