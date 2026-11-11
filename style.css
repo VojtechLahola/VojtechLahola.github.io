@@ -403,7 +403,7 @@ h3,
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto auto;
     align-items: start;
-    min-height: auto;
+    min-height: 100svh;
     padding: 38px clamp(24px, 7vw, 96px) 42px;
   }
 
