@@ -8,13 +8,14 @@
 .cat-intro { max-width: 720px; margin-bottom: 55px; }
 .cat-intro h1 { margin: 0 0 24px; }
 .cat-intro > p:last-child { max-width: 460px; margin: 0; color: var(--muted); font-size: 1.1rem; }
-.cat-card { max-width: 850px; margin: 0 auto; padding: 14px; border: 1px solid var(--forest); background: var(--paper); box-shadow: 14px 14px 0 var(--sand); }
-.cat-image { display: none; width: 100%; max-height: 620px; object-fit: cover; background: var(--sand); }
+.cat-card { max-width: 850px; margin: 0 auto; padding: 10px; border: 1px solid var(--line); border-radius: 5px; background: var(--panel); }
+.cat-home-section .cat-card { max-width: 100%; }
+.cat-image { display: none; width: 100%; height: clamp(220px, 30vw, 360px); object-fit: contain; object-position: center; background: #0c0f0d; }
 .cat-image.is-visible { display: block; }
-.cat-loading { display: flex; align-items: center; justify-content: center; min-height: 430px; background: var(--sand); color: var(--forest); }
+.cat-loading { display: flex; align-items: center; justify-content: center; min-height: 260px; background: var(--panel-light); color: var(--muted); }
 .cat-loading p { margin: 0; font-weight: 700; }
 .loading-dot { width: 10px; height: 10px; margin-right: 12px; border-radius: 50%; background: var(--olive); animation: pulse 1s infinite alternate; }
-.cat-details { display: none; align-items: center; justify-content: space-between; padding: 20px 4px 4px; }
+.cat-details { display: none; align-items: center; justify-content: space-between; padding: 14px 4px 4px; }
 .cat-details.is-visible { display: flex; }
 .cat-date { margin: 0; color: var(--muted); font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .cat-source { font-size: .85rem; }
