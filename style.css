@@ -110,7 +110,7 @@ h3,
   padding-left: 18px;
   font-size: clamp(2.6rem, 4vw, 4.1rem);
   line-height: 0.96;
-  letter-spacing: -0.08em;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
 }
 
