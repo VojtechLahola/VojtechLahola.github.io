@@ -399,12 +399,15 @@ h3,
 
 @media (max-width: 900px) {
   .identity-panel {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
     display: flex;
     min-height: auto;
     padding: 38px clamp(24px, 7vw, 64px) 42px;
   }
 
   .identity-content {
+    width: 100%;
     margin: 110px 0 52px;
   }
 
@@ -415,6 +418,26 @@ h3,
 
   .hero-cat .cat-image {
     height: min(48vw, 360px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .identity-panel {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    display: flex;
+    min-height: auto;
+    padding: 38px clamp(24px, 6vw, 64px) 42px;
+  }
+
+  .identity-content {
+    width: 100%;
+    margin: 110px 0 52px;
+  }
+
+  .hero-cat {
+    width: min(100%, 560px);
+    margin: 0 auto;
   }
 }
 
