@@ -412,6 +412,26 @@ h3,
     grid-row: 2;
     width: 100%;
     margin: 110px 0 52px;
+    text-align: center;
+  }
+
+  .identity-content h1 {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .identity-content h2 {
+    margin-left: 0;
+  }
+
+  .identity-summary {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .identity-links {
+    justify-content: center;
+    margin-left: 0;
   }
 
   .hero-cat {
@@ -421,9 +441,15 @@ h3,
     margin: 0 auto;
   }
 
+  .hero-cat-heading {
+    justify-content: center;
+    gap: 18px;
+  }
+
   .identity-footer {
     grid-column: 1;
     grid-row: 4;
+    text-align: center;
   }
 }
 
