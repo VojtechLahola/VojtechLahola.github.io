@@ -151,10 +151,6 @@
     margin-top: 20px;
   }
 
-  .cat-card {
-    box-shadow: 8px 8px 0 var(--sand);
-  }
-
   .cat-loading {
     min-height: 300px;
   }
