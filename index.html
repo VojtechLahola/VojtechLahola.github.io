@@ -28,6 +28,19 @@
             <a href="mailto:hello@vojtechlahola.dev">Email ↗</a>
           </div>
         </div>
+        <div class="hero-cat">
+          <div class="hero-cat-heading">
+            <h2>Cat of the day</h2>
+            <span>API / daily</span>
+          </div>
+          <div class="cat-card" aria-live="polite">
+            <div class="cat-loading"><span class="loading-dot"></span><p>Finding today’s cat...</p></div>
+            <img class="cat-image" alt="" />
+            <div class="cat-details"><p class="cat-date"></p><a class="text-link cat-source" href="#" target="_blank" rel="noreferrer">Original ↗</a></div>
+            <p class="cat-error" role="alert"></p>
+            <button class="button button-primary retry-button" type="button">Try again ↻</button>
+          </div>
+        </div>
         <p class="identity-footer">© <span id="current-year"></span> Vojtěch Lahola</p>
       </aside>
 
@@ -54,16 +67,6 @@
           </div>
         </section>
 
-        <section class="panel cat-panel">
-          <div class="panel-title-row"><h2 class="panel-title">Cat of the day</h2><span class="panel-note">API / daily</span></div>
-          <div class="cat-card" aria-live="polite">
-            <div class="cat-loading"><span class="loading-dot"></span><p>Finding today’s cat...</p></div>
-            <img class="cat-image" alt="" />
-            <div class="cat-details"><p class="cat-date"></p><a class="text-link cat-source" href="#" target="_blank" rel="noreferrer">Original ↗</a></div>
-            <p class="cat-error" role="alert"></p>
-            <button class="button button-primary retry-button" type="button">Try again ↻</button>
-          </div>
-        </section>
       </main>
 
       <aside class="dashboard-side">
