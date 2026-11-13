@@ -1,7 +1,14 @@
 const catApiUrl = "https://api.thecatapi.com/v1/images/search";
 const catStorageKey = "vojtech-cat-of-the-day";
 const catHistoryKey = "vojtech-cat-history";
-const maxHistoryItems = 30;
+const maxHistoryItems = 5;
+const testHistory = [
+  { date: "Test cat 01", url: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=320&h=220&fit=crop" },
+  { date: "Test cat 02", url: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=320&h=220&fit=crop" },
+  { date: "Test cat 03", url: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=320&h=220&fit=crop" },
+  { date: "Test cat 04", url: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=320&h=220&fit=crop" },
+  { date: "Test cat 05", url: "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=320&h=220&fit=crop" },
+];
 const today = new Date();
 const dateKey = [
   today.getFullYear(),
@@ -14,7 +21,6 @@ const image = document.querySelector(".cat-image");
 const details = document.querySelector(".cat-details");
 const dateLabel = document.querySelector(".cat-date");
 const sourceLink = document.querySelector(".cat-source");
-const downloadLink = document.querySelector(".cat-download");
 const errorMessage = document.querySelector(".cat-error");
 const retryButton = document.querySelector(".retry-button");
 const catCurrentYear = document.querySelector("#current-year");
@@ -39,8 +45,6 @@ function displayCat(cat) {
   image.classList.add("is-visible");
   dateLabel.textContent = `Cat of the day · ${cat.date}`;
   sourceLink.href = cat.url;
-  downloadLink.href = cat.url;
-  downloadLink.download = `cat-of-the-day-${cat.date}`;
   details.classList.add("is-visible");
   errorMessage.classList.remove("is-visible");
   retryButton.classList.remove("is-visible");
@@ -49,7 +53,9 @@ function displayCat(cat) {
 function readHistory() {
   try {
     const history = JSON.parse(localStorage.getItem(catHistoryKey));
-    return Array.isArray(history) ? history.filter((cat) => cat && typeof cat.date === "string" && typeof cat.url === "string") : [];
+    return Array.isArray(history)
+      ? history.filter((cat) => cat && typeof cat.date === "string" && typeof cat.url === "string").slice(0, maxHistoryItems)
+      : [];
   } catch (error) {
     console.error("Unable to read the cat history:", error);
     return [];
@@ -70,12 +76,22 @@ function archiveCat(cat) {
   saveHistory(history);
 }
 
+function ensureHistory() {
+  const history = readHistory();
+  if (history.length > 0) {
+    return history;
+  }
+
+  saveHistory(testHistory);
+  return testHistory;
+}
+
 function renderHistory() {
   if (!historyList || !historyEmpty) {
     return;
   }
 
-  const history = readHistory();
+  const history = ensureHistory();
   historyList.replaceChildren();
   historyEmpty.hidden = history.length > 0;
 

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css?v=responsive-layout-animations" />
-    <link rel="stylesheet" href="cat.css?v=cat-history" />
+    <link rel="stylesheet" href="cat.css?v=cat-history-row" />
     <script src="script.js" defer></script>
     <script src="cat.js" defer></script>
   </head>
@@ -36,15 +36,10 @@
           <div class="cat-card" aria-live="polite">
             <div class="cat-loading"><span class="loading-dot"></span><p>Finding today’s cat...</p></div>
             <img class="cat-image" alt="" />
-            <div class="cat-details"><p class="cat-date"></p><div class="cat-actions"><a class="text-link cat-source" href="#" target="_blank" rel="noreferrer">Original ↗</a><a class="text-link cat-download" href="#" download>Save image ↓</a></div></div>
+            <div class="cat-details"><p class="cat-date"></p><a class="text-link cat-source" href="#" target="_blank" rel="noreferrer">Original ↗</a></div>
             <p class="cat-error" role="alert"></p>
             <button class="button button-primary retry-button" type="button">Try again ↻</button>
           </div>
-          <section class="cat-history" aria-labelledby="cat-history-title">
-            <div class="cat-history-heading"><h3 id="cat-history-title">Previous cats</h3><span>Saved in this browser</span></div>
-            <div class="cat-history-list"></div>
-            <p class="cat-history-empty">Your previous cats will appear here tomorrow.</p>
-          </section>
         </div>
         <p class="identity-footer">© <span id="current-year"></span> Vojtěch Lahola</p>
       </aside>
@@ -70,6 +65,12 @@
               <div class="tag-list"><span>C#</span><span>Desktop / Web</span><a href="https://github.com/" target="_blank" rel="noreferrer">Source ↗</a></div>
             </article>
           </div>
+        </section>
+
+        <section class="cat-history panel" aria-labelledby="cat-history-title">
+          <div class="cat-history-heading"><h2 id="cat-history-title">Previous cats</h2><span>Saved in this browser</span></div>
+          <div class="cat-history-list"></div>
+          <p class="cat-history-empty">Your previous cats will appear here tomorrow.</p>
         </section>
 
       </main>
