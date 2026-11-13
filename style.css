@@ -96,6 +96,7 @@ h3,
 }
 
 .identity-panel {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 390px);
   grid-template-rows: auto 1fr auto;
@@ -106,6 +107,27 @@ h3,
   padding: 38px clamp(24px, 7vw, 96px) 32px;
   border-bottom: 1px solid var(--line);
   background: rgba(12, 15, 13, 0.86);
+}
+
+.language-toggle {
+  position: absolute;
+  top: 24px;
+  right: clamp(24px, 7vw, 96px);
+  z-index: 1;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  font: 0.68rem "Courier New", monospace;
+  transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+}
+
+.language-toggle:hover {
+  border-color: var(--accent-line);
+  color: var(--ink);
+  background: rgba(123, 138, 98, 0.12);
 }
 
 .wordmark,
@@ -377,7 +399,7 @@ h3,
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 150px;
+  min-height: 124px;
   padding: 18px;
 }
 

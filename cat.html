@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="cs">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="A new cat photo from The Cat API every day." />
-    <title>Cat of the day — Vojtech Lahola</title>
+    <title>Kočka dne — Vojtech Lahola</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,51 +16,52 @@
     <script src="script.js" defer></script>
     <script src="cat.js" defer></script>
   </head>
-  <body>
+  <body data-title-cs="Kočka dne — Vojtech Lahola" data-title-en="Cat of the day — Vojtech Lahola">
     <header class="site-header">
+      <button class="language-toggle" type="button" aria-label="Přepnout do angličtiny" aria-pressed="false">EN</button>
       <a class="brand" href="index.html" aria-label="Vojtech Lahola home">VL<span>.</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         <span class="sr-only">Toggle navigation</span>
         <span></span><span></span>
       </button>
       <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-        <a href="index.html#work">Work</a>
-        <a href="cat.html" aria-current="page">Cat of the day</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="index.html#projects" data-cs="Projekty" data-en="Projects">Projekty</a>
+        <a href="cat.html" aria-current="page" data-cs="Kočka dne" data-en="Cat of the day">Kočka dne</a>
+        <a href="index.html#profile" data-cs="O mně" data-en="About me">O mně</a>
+        <a href="index.html#contact" data-cs="Kontakt" data-en="Contact">Kontakt</a>
       </nav>
     </header>
 
     <main class="cat-page section-shell">
       <section class="cat-intro">
-        <p class="eyebrow">Daily API experiment</p>
-        <h1>Cat of the <em>day.</em></h1>
-        <p>One new cat, selected for you each day. Come back tomorrow for another one.</p>
+        <p class="eyebrow" data-cs="Denní API experiment" data-en="Daily API experiment">Denní API experiment</p>
+        <h1 data-cs="Kočka <em>dne.</em>" data-en="Cat of the <em>day.</em>">Kočka <em>dne.</em></h1>
+        <p data-cs="Každý den jedna nová kočka. Přijďte se zítra podívat na další." data-en="One new cat, selected for you each day. Come back tomorrow for another one.">Každý den jedna nová kočka. Přijďte se zítra podívat na další.</p>
       </section>
 
       <section class="cat-card" aria-live="polite">
         <div class="cat-loading">
           <span class="loading-dot"></span>
-          <p>Finding today’s cat...</p>
+          <p data-cs="Hledám dnešní kočku..." data-en="Finding today’s cat...">Hledám dnešní kočku...</p>
         </div>
         <img class="cat-image" alt="" />
         <div class="cat-details">
           <p class="cat-date"></p>
-          <a class="text-link cat-source" href="#" target="_blank" rel="noreferrer">View original <span>↗</span></a>
+          <a class="text-link cat-source" href="#" target="_blank" rel="noreferrer" data-cs="Zobrazit originál <span>↗</span>" data-en="View original <span>↗</span>">Zobrazit originál <span>↗</span></a>
         </div>
         <p class="cat-error" role="alert"></p>
-        <button class="button button-primary retry-button" type="button">Try again <span>↻</span></button>
+        <button class="button button-primary retry-button" type="button" data-cs="Zkusit znovu <span>↻</span>" data-en="Try again <span>↻</span>">Zkusit znovu <span>↻</span></button>
       </section>
       <section class="cat-history" aria-labelledby="cat-history-title">
-        <div class="cat-history-heading"><h2 id="cat-history-title">Previous cats</h2><span>Saved in this browser</span></div>
+        <div class="cat-history-heading"><h2 id="cat-history-title" data-cs="Předchozí kočky" data-en="Previous cats">Předchozí kočky</h2><span data-cs="Uloženo v prohlížeči" data-en="Saved in this browser">Uloženo v prohlížeči</span></div>
         <div class="cat-history-list"></div>
-        <p class="cat-history-empty">Your previous cats will appear here tomorrow.</p>
+        <p class="cat-history-empty" data-cs="Předchozí kočky se zde objeví zítra." data-en="Your previous cats will appear here tomorrow.">Předchozí kočky se zde objeví zítra.</p>
       </section>
     </main>
 
     <footer class="site-footer section-shell">
       <p>© <span id="current-year"></span> Vojtech Lahola</p>
-      <a href="index.html">Back to portfolio ↗</a>
+      <a href="index.html" data-cs="Zpět na portfolio ↗" data-en="Back to portfolio ↗">Zpět na portfolio ↗</a>
     </footer>
   </body>
 </html>

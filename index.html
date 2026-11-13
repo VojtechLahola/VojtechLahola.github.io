@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="cs">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio of Vojtech Lahola, software engineer." />
-    <title>Vojtech Lahola / Software Engineer</title>
+    <title>Vojtech Lahola / Softwarový inženýr</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -13,32 +13,33 @@
     <script src="script.js" defer></script>
     <script src="cat.js" defer></script>
   </head>
-  <body>
+  <body data-title-cs="Vojtech Lahola / Softwarový inženýr" data-title-en="Vojtech Lahola / Software Engineer">
     <div class="dashboard">
       <aside class="identity-panel">
-        <a class="wordmark" href="#top">Vojtěch Lahola <span>/ Developer</span></a>
+        <button class="language-toggle" type="button" aria-label="Přepnout do angličtiny" aria-pressed="false">EN</button>
+        <a class="wordmark" href="#top">Vojtěch Lahola <span>/ <span data-cs="Vývojář" data-en="Developer">Vývojář</span></span></a>
         <div class="identity-content">
-          <p class="status-line"><span></span> Available for opportunities</p>
+          <p class="status-line"><span></span> <span data-cs="Otevřený pracovním příležitostem" data-en="Available for opportunities">Otevřený pracovním příležitostem</span></p>
           <h1>Vojtěch Lahola</h1>
-          <h2>Software Engineer</h2>
-          <p class="identity-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at turpis sed nisl consequat posuere.</p>
+          <h2 data-cs="Softwarový inženýr" data-en="Software Engineer">Softwarový inženýr</h2>
+          <p class="identity-summary" data-cs="Jsem student softwarového inženýrství se zájmem o vývoj webových a full-stack aplikací. Baví mě hledat praktická řešení a učit se nové technologie." data-en="I am a software engineering student interested in web and full-stack applications. I enjoy finding practical solutions and learning new technologies.">Jsem student softwarového inženýrství se zájmem o vývoj webových a full-stack aplikací. Baví mě hledat praktická řešení a učit se nové technologie.</p>
           <div class="identity-links">
             <a href="https://github.com/VojtechLahola" target="_blank" rel="noreferrer">GitHub ↗</a>
             <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-            <a href="mailto:hello@vojtechlahola.dev">Email ↗</a>
+            <a href="mailto:hello@vojtechlahola.dev">E-mail ↗</a>
           </div>
         </div>
         <div class="hero-cat">
           <div class="hero-cat-heading">
-            <h2>Cat of the day</h2>
-            <span>API / daily</span>
+            <h2 data-cs="Kočka dne" data-en="Cat of the day">Kočka dne</h2>
+            <span data-cs="API / denně" data-en="API / daily">API / denně</span>
           </div>
           <div class="cat-card" aria-live="polite">
-            <div class="cat-loading"><span class="loading-dot"></span><p>Finding today’s cat...</p></div>
+            <div class="cat-loading"><span class="loading-dot"></span><p data-cs="Hledám dnešní kočku..." data-en="Finding today’s cat...">Hledám dnešní kočku...</p></div>
             <img class="cat-image" alt="" />
-            <div class="cat-details"><p class="cat-date"></p><a class="text-link cat-source" href="#" target="_blank" rel="noreferrer">Original ↗</a></div>
+            <div class="cat-details"><p class="cat-date"></p><a class="text-link cat-source" href="#" target="_blank" rel="noreferrer" data-cs="Originál ↗" data-en="Original ↗">Originál ↗</a></div>
             <p class="cat-error" role="alert"></p>
-            <button class="button button-primary retry-button" type="button">Try again ↻</button>
+            <button class="button button-primary retry-button" type="button" data-cs="Zkusit znovu ↻" data-en="Try again ↻">Zkusit znovu ↻</button>
           </div>
         </div>
         <p class="identity-footer">© <span id="current-year"></span> Vojtěch Lahola</p>
@@ -46,58 +47,53 @@
 
       <main id="top" class="dashboard-main">
         <section id="profile" class="panel profile-panel">
-          <h2 class="panel-title">Profile</h2>
+          <h2 class="panel-title" data-cs="O mně" data-en="About me">O mně</h2>
           <div class="panel-box profile-box">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at turpis sed nisl consequat posuere.</p>
-            <p>Praesent commodo, sapien sed facilisis pretium, justo nulla luctus neque, vitae volutpat erat sem non arcu.</p>
+            <p data-cs="Studuji softwarové inženýrství a zaměřuji se na tvorbu spolehlivých webových, desktopových a dalších softwarových řešení." data-en="I study software engineering and focus on building reliable web, desktop, and other software solutions.">Studuji softwarové inženýrství a zaměřuji se na tvorbu spolehlivých webových, desktopových a dalších softwarových řešení.</p>
+            <p data-cs="Nejlépe se učím na praktických projektech, kde mohu propojit programování, práci s databázemi a týmovou spolupráci." data-en="I learn best through practical projects where I can combine programming, databases, and teamwork.">Nejlépe se učím na praktických projektech, kde mohu propojit programování, práci s databázemi a týmovou spolupráci.</p>
           </div>
         </section>
 
+        <section class="panel focus-panel">
+          <h2 class="panel-title" data-cs="Oblasti zájmu" data-en="Focus areas">Oblasti zájmu</h2>
+          <div class="work-tags"><span data-cs="Čemu se věnuji" data-en="What I enjoy">Čemu se věnuji</span><span data-cs="Vývoj webu" data-en="Web development">Vývoj webu</span><span data-cs="Backend systémy" data-en="Backend systems">Backend systémy</span><span data-cs="Databáze" data-en="Databases">Databáze</span><span data-cs="Desktopové aplikace" data-en="Desktop apps">Desktopové aplikace</span><span data-cs="Automatizace" data-en="Automation">Automatizace</span><span data-cs="Řešení problémů" data-en="Problem solving">Řešení problémů</span></div>
+        </section>
+
         <section id="projects" class="panel projects-panel">
-          <h2 class="panel-title">Selected projects</h2>
+          <h2 class="panel-title" data-cs="Vybrané projekty" data-en="Selected projects">Vybrané projekty</h2>
           <div class="project-list">
             <article class="project-row">
-              <div><h3>Mini Casino Platform</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p></div>
+              <div><h3 data-cs="Zlín Smart City" data-en="Zlín Smart City">Zlín Smart City</h3><p data-cs="Simulátor dopravního ruchu ve Zlíně, který modeluje pohyb vozidel a pomáhá vizualizovat dopravní situaci." data-en="A traffic simulator for Zlín that models vehicle movement and helps visualize traffic conditions.">Simulátor dopravního ruchu ve Zlíně, který modeluje pohyb vozidel a pomáhá vizualizovat dopravní situaci.</p></div>
               <div class="tag-list"><span>C#</span><span>.NET Core</span><span>SQL</span><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div>
             </article>
             <article class="project-row">
-              <div><h3>Adaptive Educational System</h3><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p></div>
+              <div><h3 data-cs="Objednávkový systém" data-en="Ordering System">Objednávkový systém</h3><p data-cs="Objednávkový systém vytvořený jako školní projekt s důrazem na přehledné rozhraní a zpracování objednávek." data-en="An ordering system built as a school project, focused on a clear interface and order processing.">Objednávkový systém vytvořený jako školní projekt s důrazem na přehledné rozhraní a zpracování objednávek.</p></div>
               <div class="tag-list"><span>C#</span><span>Desktop / Web</span><a href="https://github.com/" target="_blank" rel="noreferrer">Source ↗</a></div>
             </article>
           </div>
         </section>
 
-        <section class="cat-history panel" aria-labelledby="cat-history-title">
-          <div class="cat-history-heading"><h2 id="cat-history-title">Previous cats</h2><span>Saved in this browser</span></div>
-          <div class="cat-history-list"></div>
-          <p class="cat-history-empty">Your previous cats will appear here tomorrow.</p>
-        </section>
-
       </main>
 
       <aside class="dashboard-side">
-        <section class="panel works-panel">
-          <h2 class="panel-title">Selected works</h2>
-          <div class="work-tags"><span>Languages</span><span>C#</span><span>.NET</span><span>Container</span><span>ELvE</span><span>Tool</span><span>Python</span><span>ABOT</span><span>CSS</span><span>RaperTool</span><span>ADN</span></div>
-        </section>
-
-        <section class="side-projects">
-          <article class="side-project"><h3>Mini Casino Platform</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><div class="tag-list"><span>C#</span><span>.NET Core</span><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
-          <article class="side-project"><h3>Adaptive Educational System</h3><p>Quis nostrud exercitation ullamco laboris nisi ut aliquip.</p><div class="tag-list"><span>C#</span><span>Desktop / Web</span><a href="https://github.com/" target="_blank" rel="noreferrer">Source ↗</a></div></article>
-        </section>
-
         <section id="stack" class="panel tech-panel">
-          <h2 class="panel-title">Tech stack</h2>
+          <h2 class="panel-title" data-cs="Technologie" data-en="Tech stack">Technologie</h2>
           <div class="tech-grid">
-            <div><h3>Languages</h3><p><span>C#</span><span>.NET</span></p></div>
-            <div><h3>Frameworks</h3><p><span>EF Core</span><span>SQL</span></p></div>
-            <div><h3>Environment</h3><p><span>WSL2</span><span>Ubuntu</span></p></div>
+            <div><h3 data-cs="Jazyky" data-en="Languages">Jazyky</h3><p><span>C#</span><span>.NET</span></p></div>
+            <div><h3 data-cs="Frameworky" data-en="Frameworks">Frameworky</h3><p><span>EF Core</span><span>SQL</span></p></div>
+            <div><h3 data-cs="Prostředí" data-en="Environment">Prostředí</h3><p><span>WSL2</span><span>Ubuntu</span></p></div>
           </div>
         </section>
 
+        <section class="cat-history page-history" aria-labelledby="cat-history-title">
+          <div class="cat-history-heading"><h2 id="cat-history-title" data-cs="Předchozí kočky" data-en="Previous cats">Předchozí kočky</h2><span data-cs="Silly archiv / uloženo v prohlížeči" data-en="Silly archive / saved in this browser">Silly archiv / uloženo v prohlížeči</span></div>
+          <div class="cat-history-list"></div>
+          <p class="cat-history-empty" data-cs="Předchozí kočky se zde objeví zítra." data-en="Your previous cats will appear here tomorrow.">Předchozí kočky se zde objeví zítra.</p>
+        </section>
+
         <section id="contact" class="panel contact-panel">
-          <h2 class="panel-title">Contact</h2>
-          <p>Lorem ipsum dolor sit amet. Let’s connect.</p>
+          <h2 class="panel-title" data-cs="Kontakt" data-en="Contact">Kontakt</h2>
+          <p data-cs="Máte zajímavý projekt nebo nabídku spolupráce? Ozvěte se mi." data-en="Have an interesting project or collaboration offer? Get in touch.">Máte zajímavý projekt nebo nabídku spolupráce? Ozvěte se mi.</p>
           <a href="mailto:hello@vojtechlahola.dev">hello@vojtechlahola.dev ↗</a>
         </section>
       </aside>

@@ -27,13 +27,28 @@ const catCurrentYear = document.querySelector("#current-year");
 const historyList = document.querySelector(".cat-history-list");
 const historyEmpty = document.querySelector(".cat-history-empty");
 
+function currentLanguage() {
+  return document.documentElement.lang === "en" ? "en" : "cs";
+}
+
+function translatedText(czech, english) {
+  return currentLanguage() === "en" ? english : czech;
+}
+
+function translatedDate(date) {
+  return date.startsWith("Test cat") ? date.replace("Test cat", translatedText("Testovací kočka", "Test cat")) : date;
+}
+
 if (catCurrentYear) {
   catCurrentYear.textContent = new Date().getFullYear();
 }
 
 function showError() {
   loading.style.display = "none";
-  errorMessage.textContent = "The cat service is unavailable right now. Please try again.";
+  errorMessage.textContent = translatedText(
+    "Služba s kočkami je momentálně nedostupná. Zkuste to prosím znovu.",
+    "The cat service is unavailable right now. Please try again.",
+  );
   errorMessage.classList.add("is-visible");
   retryButton.classList.add("is-visible");
 }
@@ -43,7 +58,7 @@ function displayCat(cat) {
   image.src = cat.url;
   image.alt = "Cat of the day";
   image.classList.add("is-visible");
-  dateLabel.textContent = `Cat of the day · ${cat.date}`;
+  dateLabel.textContent = `${translatedText("Kočka dne", "Cat of the day")} · ${cat.date}`;
   sourceLink.href = cat.url;
   details.classList.add("is-visible");
   errorMessage.classList.remove("is-visible");
@@ -78,7 +93,8 @@ function archiveCat(cat) {
 
 function ensureHistory() {
   const history = readHistory();
-  if (history.length > 0) {
+  const hasTestCats = history.some((cat) => cat.date.startsWith("Test cat"));
+  if (hasTestCats) {
     return history;
   }
 
@@ -105,28 +121,34 @@ function renderHistory() {
     thumbnail.loading = "lazy";
 
     const date = document.createElement("p");
-    date.textContent = cat.date;
+    date.textContent = translatedDate(cat.date);
 
     const viewLink = document.createElement("a");
     viewLink.className = "text-link";
     viewLink.href = cat.url;
     viewLink.target = "_blank";
     viewLink.rel = "noreferrer";
-    viewLink.textContent = "View ↗";
-
-    const download = document.createElement("a");
-    download.className = "text-link";
-    download.href = cat.url;
-    download.download = `cat-of-the-day-${cat.date}`;
-    download.textContent = "Save ↓";
+    viewLink.textContent = translatedText("Zobrazit ↗", "View ↗");
 
     const actions = document.createElement("div");
     actions.className = "cat-history-actions";
-    actions.append(viewLink, download);
+    actions.append(viewLink);
     item.append(thumbnail, date, actions);
     historyList.append(item);
   });
 }
+
+document.addEventListener("languagechange", () => {
+  try {
+    const savedCat = JSON.parse(localStorage.getItem(catStorageKey));
+    if (savedCat && typeof savedCat.url === "string") {
+      displayCat(savedCat);
+    }
+  } catch (error) {
+    console.error("Unable to refresh the cat language:", error);
+  }
+  renderHistory();
+});
 
 async function fetchCat() {
   loading.style.display = "flex";
