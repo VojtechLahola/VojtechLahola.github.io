@@ -65,7 +65,7 @@ h3,
   align-items: center;
   column-gap: clamp(24px, 4vw, 56px);
   min-width: 0;
-  min-height: 100svh;
+  min-height: min(100svh, 900px);
   padding: 38px clamp(24px, 7vw, 96px) 32px;
   border-bottom: 1px solid var(--line);
   background: rgba(12, 15, 13, 0.86);
@@ -190,11 +190,12 @@ h3,
 
 .hero-cat .cat-image {
   height: clamp(240px, 28vw, 360px);
+  object-fit: cover;
 }
 
 .dashboard-main,
 .dashboard-side {
-  width: min(1120px, calc(100% - 64px));
+  width: min(1280px, calc(100% - 64px));
   min-width: 0;
   margin: 0 auto;
   padding: 80px 0 50px;
@@ -403,7 +404,7 @@ h3,
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto auto;
     align-items: start;
-    min-height: 100svh;
+    min-height: min(100svh, 900px);
     padding: 38px clamp(24px, 7vw, 96px) 42px;
   }
 
@@ -498,18 +499,22 @@ h3,
   }
 
   .identity-content {
-    margin: 58px 0 32px;
+    margin: 42px 0 28px;
   }
 
   .identity-content h1 {
     margin-top: 28px;
+    font-size: clamp(2.35rem, 11vw, 3.8rem);
   }
 
   .identity-content h2 {
+    font-size: clamp(1.35rem, 7vw, 2.1rem);
     margin-bottom: 18px;
   }
 
   .identity-summary {
+    max-width: 330px;
+    font-size: 0.92rem;
     margin-bottom: 24px;
   }
 
@@ -523,7 +528,7 @@ h3,
 
   .dashboard-main,
   .dashboard-side {
-    width: min(100% - 40px, 1120px);
+    width: min(100% - 36px, 1280px);
     padding: 58px 0 38px;
   }
 
@@ -546,5 +551,19 @@ h3,
 
   .identity-footer {
     display: none;
+  }
+}
+
+@media (min-width: 1800px) {
+  .identity-panel {
+    width: min(100%, 1680px);
+    margin: 0 auto;
+    border-right: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+
+  .dashboard-main,
+  .dashboard-side {
+    width: min(1440px, calc(100% - 120px));
   }
 }
