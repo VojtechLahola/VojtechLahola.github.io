@@ -114,20 +114,25 @@ h3,
   top: 24px;
   right: clamp(24px, 7vw, 96px);
   z-index: 1;
-  padding: 6px 9px;
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  color: var(--muted);
-  background: transparent;
+  min-width: 46px;
+  padding: 8px 11px;
+  border: 1px solid var(--olive);
+  border-radius: 999px;
+  color: var(--background);
+  background: var(--olive);
   cursor: pointer;
-  font: 0.68rem "Courier New", monospace;
-  transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+  font: 700 0.72rem "Courier New", monospace;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
 .language-toggle:hover {
-  border-color: var(--accent-line);
-  color: var(--ink);
-  background: rgba(123, 138, 98, 0.12);
+  border-color: var(--sand);
+  color: var(--background);
+  background: var(--sand);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .wordmark,
@@ -178,7 +183,7 @@ h3,
   text-transform: uppercase;
 }
 
-.status-line span {
+.status-line > span:first-child {
   display: inline-block;
   width: 7px;
   height: 7px;

@@ -2,13 +2,6 @@ const catApiUrl = "https://api.thecatapi.com/v1/images/search";
 const catStorageKey = "vojtech-cat-of-the-day";
 const catHistoryKey = "vojtech-cat-history";
 const maxHistoryItems = 5;
-const testHistory = [
-  { date: "Test cat 01", url: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=320&h=220&fit=crop" },
-  { date: "Test cat 02", url: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=320&h=220&fit=crop" },
-  { date: "Test cat 03", url: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=320&h=220&fit=crop" },
-  { date: "Test cat 04", url: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=320&h=220&fit=crop" },
-  { date: "Test cat 05", url: "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=320&h=220&fit=crop" },
-];
 const today = new Date();
 const dateKey = [
   today.getFullYear(),
@@ -33,10 +26,6 @@ function currentLanguage() {
 
 function translatedText(czech, english) {
   return currentLanguage() === "en" ? english : czech;
-}
-
-function translatedDate(date) {
-  return date.startsWith("Test cat") ? date.replace("Test cat", translatedText("Testovací kočka", "Test cat")) : date;
 }
 
 if (catCurrentYear) {
@@ -68,9 +57,20 @@ function displayCat(cat) {
 function readHistory() {
   try {
     const history = JSON.parse(localStorage.getItem(catHistoryKey));
-    return Array.isArray(history)
-      ? history.filter((cat) => cat && typeof cat.date === "string" && typeof cat.url === "string").slice(0, maxHistoryItems)
-      : [];
+    if (!Array.isArray(history)) {
+      return [];
+    }
+
+    const validHistory = history
+      .filter((cat) => cat && typeof cat.date === "string" && typeof cat.url === "string")
+      .filter((cat) => !cat.date.startsWith("Test cat") && !cat.date.startsWith("Testovací kočka"))
+      .slice(0, maxHistoryItems);
+
+    if (validHistory.length !== history.length) {
+      saveHistory(validHistory);
+    }
+
+    return validHistory;
   } catch (error) {
     console.error("Unable to read the cat history:", error);
     return [];
@@ -91,23 +91,12 @@ function archiveCat(cat) {
   saveHistory(history);
 }
 
-function ensureHistory() {
-  const history = readHistory();
-  const hasTestCats = history.some((cat) => cat.date.startsWith("Test cat"));
-  if (hasTestCats) {
-    return history;
-  }
-
-  saveHistory(testHistory);
-  return testHistory;
-}
-
 function renderHistory() {
   if (!historyList || !historyEmpty) {
     return;
   }
 
-  const history = ensureHistory();
+  const history = readHistory();
   historyList.replaceChildren();
   historyEmpty.hidden = history.length > 0;
 
@@ -121,7 +110,7 @@ function renderHistory() {
     thumbnail.loading = "lazy";
 
     const date = document.createElement("p");
-    date.textContent = translatedDate(cat.date);
+    date.textContent = cat.date;
 
     const viewLink = document.createElement("a");
     viewLink.className = "text-link";
