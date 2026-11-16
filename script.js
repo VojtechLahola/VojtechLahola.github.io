@@ -3,6 +3,8 @@ const siteNav = document.querySelector("#site-nav");
 const currentYear = document.querySelector("#current-year");
 const languageKey = "vojtech-language";
 const languageButtons = document.querySelectorAll(".language-toggle");
+const contactForm = document.querySelector(".contact-form");
+const contactStatus = document.querySelector(".contact-status");
 
 function applyLanguage(language) {
   document.documentElement.lang = language === "en" ? "en" : "cs";
@@ -58,6 +60,47 @@ if (menuToggle && siteNav) {
     if (event.target instanceof HTMLAnchorElement) {
       siteNav.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+if (contactForm instanceof HTMLFormElement && contactStatus instanceof HTMLElement) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const submitButton = contactForm.querySelector("button[type='submit']");
+    if (!(submitButton instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    submitButton.disabled = true;
+    contactStatus.hidden = true;
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: new FormData(contactForm),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed with status ${response.status}`);
+      }
+
+      contactForm.reset();
+      contactStatus.textContent = document.documentElement.lang === "en"
+        ? "Thank you. Your message has been sent."
+        : "Děkuji. Vaše zpráva byla odeslána.";
+      contactStatus.hidden = false;
+    } catch (error) {
+      console.error("Unable to submit the contact form:", error);
+      contactStatus.textContent = document.documentElement.lang === "en"
+        ? "The message could not be sent. Please try again."
+        : "Zprávu se nepodařilo odeslat. Zkuste to prosím znovu.";
+      contactStatus.hidden = false;
+    } finally {
+      submitButton.disabled = false;
     }
   });
 }

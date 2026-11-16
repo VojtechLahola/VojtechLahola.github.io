@@ -25,7 +25,7 @@
           <p class="identity-summary" data-cs="Jsem student softwarového inženýrství se zájmem o vývoj webových a full-stack aplikací. Baví mě hledat praktická řešení a učit se nové technologie." data-en="I am a software engineering student interested in web and full-stack applications. I enjoy finding practical solutions and learning new technologies.">Jsem student softwarového inženýrství se zájmem o vývoj webových a full-stack aplikací. Baví mě hledat praktická řešení a učit se nové technologie.</p>
           <div class="identity-links">
             <a href="https://github.com/VojtechLahola" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="https://www.linkedin.com/in/vojt%C4%9Bch-lahola-96957a279/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
           </div>
         </div>
         <div class="hero-cat">
@@ -41,7 +41,6 @@
             <button class="button button-primary retry-button" type="button" data-cs="Zkusit znovu ↻" data-en="Try again ↻">Zkusit znovu ↻</button>
           </div>
         </div>
-        <p class="identity-footer">© <span id="current-year"></span> Vojtěch Lahola</p>
       </aside>
 
       <main id="top" class="dashboard-main">
@@ -63,7 +62,7 @@
           <div class="project-list">
             <article class="project-row">
               <div><h3 data-cs="Zlín Smart City" data-en="Zlín Smart City">Zlín Smart City</h3><p data-cs="Simulátor dopravního ruchu ve Zlíně, který modeluje pohyb vozidel a pomáhá vizualizovat dopravní situaci." data-en="A traffic simulator for Zlín that models vehicle movement and helps visualize traffic conditions.">Simulátor dopravního ruchu ve Zlíně, který modeluje pohyb vozidel a pomáhá vizualizovat dopravní situaci.</p></div>
-              <div class="tag-list"><span>C#</span><span>.NET Core</span><span>SQL</span><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+              <div class="tag-list"><span>C#</span><span>.NET Core</span><span>SQL</span><a href="https://github.com/VojtechLahola/Zlin-Smart-City" target="_blank" rel="noreferrer">GitHub ↗</a></div>
             </article>
             <article class="project-row">
               <div><h3 data-cs="Objednávkový systém" data-en="Ordering System">Objednávkový systém</h3><p data-cs="Objednávkový systém vytvořený jako školní projekt s důrazem na přehledné rozhraní a zpracování objednávek." data-en="An ordering system built as a school project, focused on a clear interface and order processing.">Objednávkový systém vytvořený jako školní projekt s důrazem na přehledné rozhraní a zpracování objednávek.</p></div>
@@ -79,7 +78,7 @@
           <h2 class="panel-title" data-cs="Technologie" data-en="Tech stack">Technologie</h2>
           <div class="tech-grid">
             <div><h3 data-cs="Jazyky" data-en="Languages">Jazyky</h3><p><span>C#</span><span>C++</span><span>PHP</span><span>Python</span><span>HTML/CSS</span></p></div>
-            <div><h3 data-cs="Frameworky a nástroje" data-en="Frameworks and tools">Frameworky a nástroje</h3><p><span>.NET</span><span>Bootstrap</span><span>Unity</span></p></div>
+            <div><h3 data-cs="Frameworky a nástroje" data-en="Frameworks and tools">Frameworky a nástroje</h3><p><span>.NET</span><span>ASP.NET</span><span>Bootstrap</span><span>Unity</span></p></div>
             <div><h3 data-cs="Databáze a nástroje" data-en="Databases and tools">Databáze a nástroje</h3><p><span>MySQL</span><span>SQL</span><span>Git</span><span>Docker</span></p></div>
           </div>
         </section>
@@ -93,7 +92,19 @@
         <section id="contact" class="panel contact-panel">
           <h2 class="panel-title" data-cs="Kontakt" data-en="Contact">Kontakt</h2>
           <p data-cs="Máte zajímavý projekt nebo nabídku spolupráce? Ozvěte se mi." data-en="Have an interesting project or collaboration offer? Get in touch.">Máte zajímavý projekt nebo nabídku spolupráce? Ozvěte se mi.</p>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Spojte se se mnou na LinkedIn ↗</a>
+          <form class="contact-form" action="https://formspree.io/f/xkjrjyry" method="POST">
+            <label for="contact-name" data-cs="Jméno" data-en="Name">Jméno</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required />
+            <label for="contact-email" data-cs="Váš e-mail" data-en="Your email">Váš e-mail</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required />
+            <label for="contact-subject" data-cs="Předmět" data-en="Subject">Předmět</label>
+            <input id="contact-subject" name="subject" type="text" required />
+            <label for="contact-message" data-cs="Zpráva" data-en="Message">Zpráva</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
+            <button class="button button-primary" type="submit" data-cs="Odeslat zprávu ↗" data-en="Send message ↗">Odeslat zprávu ↗</button>
+          </form>
+          <p class="contact-note" data-cs="Zpráva bude odeslána přímo na můj e-mail." data-en="Your message will be sent directly to my email.">Zpráva bude odeslána přímo na můj e-mail.</p>
+          <p class="contact-status" role="status" aria-live="polite" hidden></p>
         </section>
       </aside>
     </div>

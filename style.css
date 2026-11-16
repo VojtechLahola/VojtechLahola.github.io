@@ -525,12 +525,13 @@ h3,
 }
 
 .contact-panel {
-  padding-top: 4px;
+  padding-top: 32px;
   border-top: 1px solid var(--line);
+  text-align: center;
 }
 
 .contact-panel p {
-  margin: 0 0 3px;
+  margin: 0 auto 3px;
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -540,6 +541,49 @@ h3,
   font-size: 0.85rem;
   font-weight: 700;
   transition: color 180ms ease;
+}
+
+.contact-form {
+  display: grid;
+  gap: 8px;
+  max-width: 620px;
+  margin: 18px auto 0;
+  text-align: left;
+}
+
+.contact-form label {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 5px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 10px 12px;
+  color: var(--ink);
+  background: rgba(27, 33, 28, 0.78);
+  font: inherit;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 1px solid var(--olive);
+  border-color: var(--olive);
+}
+
+.contact-form button {
+  justify-self: center;
+  margin-top: 5px;
+}
+
+.contact-note {
+  margin: 12px 0 0 !important;
+  color: var(--muted);
+  font-size: 0.75rem !important;
 }
 
 .sr-only {
@@ -552,6 +596,39 @@ h3,
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.contact-status {
+  margin-top: 14px !important;
+  color: var(--olive) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600;
+}
+
+.button {
+  border: 1px solid var(--accent-line);
+  border-radius: 3px;
+  padding: 10px 16px;
+  color: var(--sand);
+  background: transparent;
+  cursor: pointer;
+  font: 700 0.78rem "IBM Plex Sans", sans-serif;
+  letter-spacing: 0.04em;
+  transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.button:hover:not(:disabled),
+.button:focus-visible {
+  border-color: var(--olive);
+  color: var(--background);
+  background: var(--olive);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.button:disabled {
+  cursor: wait;
+  opacity: 0.65;
 }
 
 @media (max-width: 1400px) {
@@ -690,6 +767,10 @@ h3,
 
   .dashboard-side {
     padding-top: 5px;
+  }
+
+  .contact-form {
+    width: 100%;
   }
 
   .side-projects,
