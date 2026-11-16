@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio of Vojtech Lahola, software engineer." />
     <title>Vojtech Lahola / Softwarový inženýr</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=contact-form-responsive" />
-    <link rel="stylesheet" href="cat.css?v=cat-history-row" />
+    <link rel="preconnect" href="https://api.thecatapi.com" />
+    <link rel="preload" as="style" href="style.css?v=contact-form-responsive" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" as="style" href="cat.css?v=cat-history-row" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="style.css?v=contact-form-responsive" />
+      <link rel="stylesheet" href="cat.css?v=cat-history-row" />
+    </noscript>
     <script src="script.js" defer></script>
     <script src="cat.js" defer></script>
   </head>
@@ -35,7 +37,7 @@
           </div>
           <div class="cat-card" aria-live="polite">
             <div class="cat-loading"><span class="loading-dot"></span><p data-cs="Hledám dnešní kočku..." data-en="Finding today’s cat...">Hledám dnešní kočku...</p></div>
-            <img class="cat-image" alt="" />
+            <img class="cat-image" width="560" height="360" decoding="async" alt="" />
             <div class="cat-details"><p class="cat-date"></p><a class="text-link cat-source" href="#" target="_blank" rel="noreferrer" data-cs="Originál ↗" data-en="Original ↗">Originál ↗</a></div>
             <p class="cat-error" role="alert"></p>
             <button class="button button-primary retry-button" type="button" data-cs="Zkusit znovu ↻" data-en="Try again ↻">Zkusit znovu ↻</button>

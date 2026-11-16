@@ -12,6 +12,24 @@
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191-2193, U+2212, U+2215;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -111,26 +129,27 @@ h3,
 
 .language-toggle {
   position: absolute;
-  top: 24px;
+  top: 20px;
   right: clamp(24px, 7vw, 96px);
   z-index: 1;
-  min-width: 46px;
-  padding: 8px 11px;
-  border: 1px solid var(--olive);
+  min-width: 58px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--sand);
   border-radius: 999px;
   color: var(--background);
-  background: var(--olive);
+  background: var(--sand);
   cursor: pointer;
-  font: 700 0.72rem "Courier New", monospace;
+  font: 700 0.78rem "Courier New", monospace;
   letter-spacing: 0.08em;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
   transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
 .language-toggle:hover {
-  border-color: var(--sand);
+  border-color: var(--olive);
   color: var(--background);
-  background: var(--sand);
+  background: var(--olive);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
@@ -233,6 +252,9 @@ h3,
 }
 
 .identity-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   transition: color 180ms ease, transform 180ms ease;
 }
 
@@ -401,10 +423,10 @@ h3,
 }
 
 .project-row {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 124px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
   padding: 18px;
 }
 
@@ -433,16 +455,22 @@ h3,
 }
 
 .tag-list {
-  margin-top: 16px;
+  justify-content: flex-end;
+  margin-top: 0;
 }
 
 .tag-list span,
 .tag-list a,
 .work-tags span,
 .tech-grid p span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
   padding: 7px 11px;
   border: 1px solid var(--line);
   border-radius: 3px;
+  text-align: center;
   color: var(--muted);
   font: 0.75rem "Courier New", monospace;
 }
@@ -606,6 +634,7 @@ h3,
 }
 
 .button {
+  min-height: 44px;
   border: 1px solid var(--accent-line);
   border-radius: 3px;
   padding: 10px 16px;
@@ -771,6 +800,18 @@ h3,
 
   .contact-form {
     width: 100%;
+  }
+
+  .project-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .project-row .tag-list {
+    justify-content: flex-start;
+    margin-top: 16px;
   }
 
   .side-projects,

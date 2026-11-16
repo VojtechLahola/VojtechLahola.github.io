@@ -195,7 +195,16 @@
 }
 
 .cat-source {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 0.85rem;
+}
+
+.cat-history-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .cat-error {
