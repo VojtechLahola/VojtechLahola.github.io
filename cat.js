@@ -64,6 +64,7 @@ function readHistory() {
     const validHistory = history
       .filter((cat) => cat && typeof cat.date === "string" && typeof cat.url === "string")
       .filter((cat) => !cat.date.startsWith("Test cat") && !cat.date.startsWith("Testovací kočka"))
+      .filter((cat, index, items) => items.findIndex((item) => item.url === cat.url) === index)
       .slice(0, maxHistoryItems);
 
     if (validHistory.length !== history.length) {
@@ -82,6 +83,7 @@ function saveHistory(history) {
     const uniqueHistory = history
       .filter((cat) => cat && typeof cat.date === "string" && typeof cat.url === "string")
       .filter((cat, index, items) => items.findIndex((item) => item.date === cat.date) === index)
+      .filter((cat, index, items) => items.findIndex((item) => item.url === cat.url) === index)
       .sort((first, second) => second.date.localeCompare(first.date));
     localStorage.setItem(catHistoryKey, JSON.stringify(uniqueHistory.slice(0, maxHistoryItems)));
   } catch (error) {
@@ -161,11 +163,18 @@ async function fetchCats(limit = 1, updateDisplay = true) {
     }
 
     const cats = await response.json();
-    if (!Array.isArray(cats) || cats.length < limit || cats.some((cat) => !cat || typeof cat.url !== "string")) {
+    const uniqueCats = Array.isArray(cats)
+      ? cats.filter((cat, index, items) =>
+        cat &&
+        typeof cat.url === "string" &&
+        items.findIndex((item) => item && item.url === cat.url) === index,
+      )
+      : [];
+    if (uniqueCats.length < limit) {
       throw new Error("Cat API returned an invalid image");
     }
 
-    return cats;
+    return uniqueCats.slice(0, limit);
   } catch (error) {
     console.error("Unable to load cat of the day:", error);
     if (updateDisplay) {
@@ -224,7 +233,15 @@ async function seedCatHistory() {
 }
 
 async function seedPreviousCats() {
-  const existingHistory = readHistory();
+  let currentUrl = "";
+  try {
+    const savedCat = JSON.parse(localStorage.getItem(catStorageKey));
+    currentUrl = savedCat && typeof savedCat.url === "string" ? savedCat.url : "";
+  } catch (error) {
+    console.error("Unable to read the current cat while seeding history:", error);
+  }
+
+  const existingHistory = readHistory().filter((cat) => cat.url !== currentUrl);
   const needed = maxHistoryItems - 1 - existingHistory.length;
   if (needed <= 0) {
     return;
